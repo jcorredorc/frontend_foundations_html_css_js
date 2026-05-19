@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Easycars - Your one-stop shop for all car needs"
+    />
+    <meta name="author" content="Easycars Team" />
+    <meta
+      name="keywords"
+      content="cars, automotive, dealership, car sales, car rentals, car maintenance"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#000000" />
+    <!-- redes sociales -->
+    <meta
+      property="og:title"
+      content="Easycars - Your one-stop shop for all car needs"
+    />
+    <meta
+      property="og:description"
+      content="Discover a wide range of cars, services and support at Easycars. Whether you're looking to buy, rent, or maintain your vehicle, we've got you covered."
+    />
+    <meta property="og:image" content="https://www.easycars.com/og-image.jpg" />
+    <meta property="og:url" content="https://www.easycars.com" />
+    <!-- Twiter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Easycars - Your one-stop shop for all car needs"
+    />
+    <meta
+      name="twitter:description"
+      content="Discover a wide range of cars and services at Easycars. Whether you're looking to buy, rent, or maintain your vehicle, we've got you covered."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.easycars.com/twitter-image.jpg"
+    />
+    <meta name="twitter:site" content="@easycars" />
+    <!-- hojas de estilo -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- favicon  icono en el tab del navegador -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <!-- fuentes de google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- scripts -->
+    <script src="scripts.js" defer></script>
+    <!-- precarga de imagenes -->
+    <link rel="preload" as="image" href="car1.jpg" />
+    <title>Easycars</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>Header 1</th>
+        <th>Header 2</th>
+        <th>Header 3</th>
+      </tr>
+      <tr>
+        <td>Row 1, Cell 1</td>
+        <td>Row 1, Cell 2</td>
+        <td>Row 1, Cell 3</td>
+      </tr>
+      <tr>
+        <td>Row 2, Cell 1</td>
+        <td>Row 2, Cell 2</td>
+        <td>Row 2, Cell 3</td>
+      </tr>
+    </table>
+
+    <select name="select_test" id="select_test">
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+    </select>
+
+    <select name="select_multiple" id="select_multiple" multiple>
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+    </select>
+
+    <form>
+      <fieldset>
+        <legend>Datos personales</legend>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required />
+        <br /><br />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+      </fieldset>
+      <fieldset>
+        <legend>Datos de envío</legend>
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" required />
+        <br /><br />
+        <label for="postal_code">Código postal:</label>
+        <input type="text" id="postal_code" name="postal_code" required />
+      </fieldset>
+      <br />
+      <button type="submit">Enviar pedido</button>
+    </form>
+    <form method="GET" action="/search">
+      <label for="searchQuery">Buscar:</label>
+      <input
+        type="text"
+        id="searchQuery"
+        name="q"
+        placeholder="Buscar productos..."
+      />
+      <br /><br />
+      <button type="submit">Buscar</button>
+    </form>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <label for="singleFile">Subir un documento:</label><br />
+      <input
+        type="file"
+        id="singleFile"
+        name="singleFile"
+        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+      />
+      <br /><br />
+      <label for="multipleFiles">Seleccionar múltiples archivos:</label><br />
+      <input
+        type="file"
+        id="multipleFiles"
+        name="multipleFiles[]"
+        multiple
+      /><br /><br />
+      <button type="submit">Subir archivos</button>
+    </form>
+
+
+  </body>
+</html>

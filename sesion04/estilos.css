@@ -1,0 +1,163 @@
+h1 {
+  color: blue;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+p {
+  color: goldenrod;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  text-align: justify;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/* estilo etiqueta para enlaces */
+a {
+  color: red;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/* estilo clase para resaltar texto */
+.highlight {
+  background-color: rgb(0, 255, 55);
+  padding: 5px; /* espacio entre el borde y el contenido */
+  border-radius: 5px;
+}
+
+/* estilo id para el enlace de inicio */
+#home {
+  color: green;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: normal;
+  /* position: fixed; */
+  height: 100px;
+  background-color: royalblue;
+  color: yellow;
+}
+
+/* estilo para enlaces dentro de la etiqueta nav */
+nav a {
+  color: purple;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/* estilo para encabezados agrupador */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: blue;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+/* hijos directos de ul */
+ul > li {
+  color: black;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/* de atributo para submit */
+input[type="submit"] {
+  background-color: orange;
+  color: white;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+section h3 {
+  color: darkred;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  text-align: left;
+  font-size: 18px;
+  font-weight: heavy;
+}
+
+input[type="text"],
+input[type="email"]:hover {
+  background-color: darkorange;
+}
+
+p {
+  color: goldenrod;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  text-align: justify;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.5; /* espacio entre líneas */
+}
+
+#main_content {
+  border: 1px solid #ccc; /* borde de la tarjeta */
+  border-radius: 10px; /* bordes redondeados */
+  padding: 20px; /* espacio interno */
+  margin: 20px; /* espacio externo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra para dar profundidad */
+  /*en este caso se le asigna un fondo a la tarjeta, pero también se le puede asignar una imagen de fondo */
+  background-color: #35f6ff; /* color de fondo */
+  background-image: url(patron.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.tarjeta{
+    backgound: #f6f6f6 ;
+}
+
+button {
+  background-color: #4CAF50; /* color de fondo */
+  color: white; /* color del texto */
+  padding: 10px 20px; /* espacio interno */
+  border: 1px dashed #4c53af; /* borde */
+  border-radius: 5px; /* bordes redondeados */
+  cursor: pointer; /* cursor de mano al pasar sobre el botón */
+}
+
+
+/* 4ta sesion */
+
+.btn{
+  background-color: #4CAF50; /* color de fondo */
+  color: white; /* color del texto */
+  padding: 10px 20px; /* espacio interno */
+  border: 1px dashed #4c53af; /* borde */
+  border-radius: 5px; /* bordes redondeados */
+  cursor: pointer; /* cursor de mano al pasar sobre el botón */
+}
+.btn-primary {
+  background-color: #007bff; /* color de fondo para el botón primario */
+  border: none; /* sin borde */
+}
+.btn-secondary {
+  background-color: #6c757d; /* color de fondo para el botón secundario */
+  border: none; /* sin borde */
+}
+.btn-success {
+  background-color: #28a745; /* color de fondo para el botón de éxito */
+  border: none; /* sin borde */
+}
+.btn-danger {
+  background-color: #dc3545; /* color de fondo para el botón de peligro */
+  border: none; /* sin borde */
+}
+

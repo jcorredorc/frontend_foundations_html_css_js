@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>  
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Easycars - Your one-stop shop for all car needs">
+        <meta name="author" content="Easycars Team">
+        <meta name="keywords" content="cars, automotive, dealership, car sales, car rentals, car maintenance">
+        <meta name="robots" content="index, follow">
+        <meta name="theme-color" content="#000000">
+        <!-- redes sociales -->
+        <meta property="og:title" content="Easycars - Your one-stop shop for all car needs">
+        <meta property="og:description" content="Discover a wide range of cars, services and support at Easycars. Whether you're looking to buy, rent, or maintain your vehicle, we've got you covered.">
+        <meta property="og:image" content="https://www.easycars.com/og-image.jpg">
+        <meta property="og:url" content="https://www.easycars.com"> 
+        <!-- Twiter Card meta tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Easycars - Your one-stop shop for all car needs">
+        <meta name="twitter:description" content="Discover a wide range of cars and services at Easycars. Whether you're looking to buy, rent, or maintain your vehicle, we've got you covered.">
+        <meta name="twitter:image" content="https://www.easycars.com/twitter-image.jpg">
+        <meta name="twitter:site" content="@easycars">  
+        <!-- hojas de estilo -->
+        <link rel="stylesheet" href="styles.css">
+        <!-- favicon  icono en el tab del navegador -->
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <!-- fuentes de google fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <!-- scripts -->
+        <script src="scripts.js" defer></script>
+        <!-- precarga de imagenes -->
+        <link rel="preload" as="image" href="car1.jpg">
+        <title>Easycars</title>        
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to Easycars</h1>
+            <h2>Your one-stop shop for all car needs</h2>
+            <h3>Discover a wide range of cars, services and support at Easycars. Whether you're looking to buy, rent, or maintain your vehicle, we've got you covered.</h3>
+            <h4>otro nivel 4</h4>
+            <h5>otro nivel 5</h5>
+            <nav>
+                <div class="logo">Easycars</div>
+                <ul class="nav-links"> 
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#inventory">Inventory</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Contenido principal de la página -->
+            <section>
+                <h1>Bienvenido a Easycars</h1>
+                <p> parrafos </p>
+            </section>
+            <section>
+                <h2>Nuestros Servicios</h2>
+                <p>Descripción de los servicios ofrecidos.</p>
+                <article>
+                    <header>
+                        <h3>Servicio 1</h3>
+                    </header>
+                    <img width=="car1.jpg" alt="Car 1">
+                    <p>Descripción del servicio 1.</p>
+                </article>
+            </section>
+            <section>
+                <p>en el texto hay marcas <mark>destacadas</mark></p>
+                <details>
+                    <summary>Más información</summary>
+                    <p>Información adicional sobre el servicio.</p>
+                </details>
+            </section>
+        </main>
+        <section>
+            <h2>Contáctanos</h2>
+            <form action="/submit-form" method="post">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+        <section>
+            <!-- elementos de bloque -->
+            <div>algo</div>
+            <p>otro elemento de bloque</p>
+            
+        </section>
+        <footer>
+            <p>&copy; 2026 Easycars. All rights reserved.</p>
+        </footer>
+    </body>
+        
+</html>

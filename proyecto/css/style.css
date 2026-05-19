@@ -1,0 +1,115 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 16px;
+}
+
+body{
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+}
+
+#header{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 5rem;
+    background: rgb(194, 182, 131);
+    color: white;
+    padding: 0px;
+    font-size: 1.5rem;
+
+    position: sticky;
+    top: 0;
+}
+
+#main-content{
+    padding: 0rem;
+}
+
+#main-title{
+    padding: 1rem;
+}
+
+.menu-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* align-items: center; */
+    padding: 1rem;
+    /* gap: 1rem; */
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+    .menu-container {
+        flex-direction: column;
+    }
+}
+
+.menu-card{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: start; */
+    /* align-items: center; */
+    gap: 0.3rem;
+    padding: 1rem;
+    border: 1px solid rgb(212, 208, 208);
+    border-radius: 0.5rem;
+    transform:
+        transform 0.3s ease-out;
+        box-shadow: 0.3s ease;
+}
+
+
+.menu-card:hover{
+    transform: 
+        traslateY(-5px)
+        rotate(2deg);
+    box-shadow: 
+        0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.menu-card-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    /* align-items: end; */
+    gap: 0.5rem;
+}
+
+.menu-card-price{
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: right;
+}
+
+.menu-card-image{
+    border-radius: 15px;
+}
+
+.btn{
+    width: 80px;
+    height: 30px;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    /* transition: background-color 0.3s ease; */
+}
+
+.btn-primary{
+    background-color: rgb(4, 119, 112);
+    color: white;
+}
+
+.btn-secondary{
+    background-color: rgb(81, 207, 142);
+    color: white;
+}

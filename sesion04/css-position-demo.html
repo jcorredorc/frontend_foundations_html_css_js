@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Position: static, relative, absolute, fixed y sticky</title>
+<style>
+  * { box-sizing: border-box; }
+
+  :root {
+    --bg: #fafaf7;
+    --surface: #ffffff;
+    --surface-2: #f1efe8;
+    --text: #1a1a1a;
+    --text-muted: #5f5e5a;
+    --text-soft: #888780;
+    --border: rgba(0,0,0,0.12);
+    --border-strong: rgba(0,0,0,0.25);
+    --accent: #534AB7;
+    --accent-bg: #EEEDFE;
+    --info: #185FA5;
+    --info-bg: #E6F1FB;
+    --radius: 8px;
+    --radius-lg: 12px;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, monospace;
+  }
+
+  body {
+    margin: 0;
+    padding: 2rem 1rem 4rem;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+  header h1 {
+    font-size: 28px;
+    font-weight: 500;
+    margin: 0 0 8px;
+    letter-spacing: -0.5px;
+  }
+  header p {
+    color: var(--text-muted);
+    margin: 0;
+    font-size: 15px;
+  }
+
+  section.demo {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  section.demo h2 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 0 8px;
+  }
+
+  section.demo > p.intro {
+    color: var(--text-muted);
+    margin: 0 0 1.5rem;
+    font-size: 14px;
+  }
+
+  /* === Tabs === */
+  .tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+  .tab-btn {
+    background: transparent;
+    border: 0.5px solid var(--border);
+    color: var(--text-muted);
+    padding: 8px 16px;
+    border-radius: var(--radius);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .tab-btn:hover {
+    background: var(--surface-2);
+    border-color: var(--border-strong);
+  }
+  .tab-btn.active {
+    background: var(--accent-bg);
+    border-color: var(--accent);
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* === Explanation box === */
+  .explanation {
+    background: var(--surface-2);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin-bottom: 1.25rem;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  .insight {
+    margin-top: 1.25rem;
+    padding: 14px 18px;
+    background: var(--info-bg);
+    border-radius: var(--radius);
+    font-size: 14px;
+    color: var(--info);
+    line-height: 1.65;
+  }
+
+  /* === Demo grid (visual + code) === */
+  .demo-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 720px) {
+    .demo-grid { grid-template-columns: 1fr; }
+  }
+
+  .label {
+    font-size: 11px;
+    color: var(--text-soft);
+    margin: 0 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+
+  /* === Stage (where boxes move) === */
+  #stage {
+    position: relative;
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    height: 300px;
+    overflow: hidden;
+  }
+  #stage .inner {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .box {
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .box-static {
+    background: #EEEDFE;
+    color: #3C3489;
+    border: 0.5px solid #7F77DD;
+  }
+  #target {
+    background: #FAECE7;
+    color: #712B13;
+    border: 0.5px solid #D85A30;
+    transition: all 0.35s ease;
+  }
+
+  /* === Code block === */
+  pre.code {
+    background: #1e1e1e;
+    color: #e8e8e3;
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.65;
+    height: 300px;
+    overflow: auto;
+    white-space: pre;
+  }
+  pre.code .kw { color: #c89bff; }
+  pre.code .prop { color: #82d8ff; }
+  pre.code .val { color: #ffb578; }
+  pre.code .com { color: #6a7484; font-style: italic; }
+
+  /* === Sticky demo === */
+  .sticky-intro {
+    background: var(--surface-2);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin-bottom: 1.25rem;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+  .sticky-intro strong { color: var(--text); font-weight: 500; }
+  .sticky-intro code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    background: rgba(0,0,0,0.05);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  #scroll-container {
+    height: 340px;
+    overflow-y: auto;
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    position: relative;
+  }
+
+  .sticky-header {
+    padding: 10px 16px;
+    font-weight: 500;
+    font-size: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  .sh-citricos  { background: #FAEEDA; color: #633806; border-bottom: 0.5px solid #BA7517; }
+  .sh-rojos     { background: #FBEAF0; color: #72243E; border-bottom: 0.5px solid #D4537E; }
+  .sh-tropicales{ background: #EAF3DE; color: #27500A; border-bottom: 0.5px solid #639922; }
+  .sh-otras     { background: #E6F1FB; color: #0C447C; border-bottom: 0.5px solid #378ADD; }
+
+  ul.fruit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  ul.fruit-list li {
+    padding: 11px 16px;
+    border-bottom: 0.5px solid var(--border);
+    font-size: 14px;
+  }
+  ul.fruit-list li:last-child { border-bottom: none; }
+
+  .scroll-hint {
+    font-size: 12px;
+    color: var(--text-soft);
+    text-align: center;
+    margin: 10px 0 1.25rem;
+  }
+
+  /* === Summary cards === */
+  .summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 12px;
+    margin-top: 1rem;
+  }
+  .sum-card {
+    background: var(--surface-2);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+  }
+  .sum-card .name {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    margin: 0 0 4px;
+  }
+  .sum-card .desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--text-soft);
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>CSS <code style="font-family: var(--font-mono);">position</code> en 5 ejemplos</h1>
+    <p>static · relative · absolute · fixed · sticky</p>
+  </header>
+
+  <!-- ============================================ -->
+  <!-- DEMO 1: static / relative / absolute / fixed -->
+  <!-- ============================================ -->
+  <section class="demo">
+    <h2>Comparador interactivo</h2>
+    <p class="intro">Haz clic en cada pestaña y observa cómo se mueve la <strong>Caja 2</strong>. El código a la derecha muestra lo que se le aplica.</p>
+
+    <div class="tabs" id="tabs">
+      <button data-pos="static" class="tab-btn active">static</button>
+      <button data-pos="relative" class="tab-btn">relative</button>
+      <button data-pos="absolute" class="tab-btn">absolute</button>
+      <button data-pos="fixed" class="tab-btn">fixed</button>
+    </div>
+
+    <div class="explanation" id="explanation"></div>
+
+    <div class="demo-grid">
+      <div>
+        <p class="label">Resultado visual</p>
+        <div id="stage">
+          <div class="inner">
+            <div class="box box-static">Caja 1</div>
+            <div id="target" class="box">Caja 2 (la que se mueve)</div>
+            <div class="box box-static">Caja 3</div>
+            <div class="box box-static">Caja 4</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="label">CSS aplicado a Caja 2</p>
+        <pre class="code" id="code"></pre>
+      </div>
+    </div>
+
+    <div class="insight" id="key-insight"></div>
+  </section>
+
+  <!-- ============================== -->
+  <!-- DEMO 2: sticky -->
+  <!-- ============================== -->
+  <section class="demo">
+    <h2>Bonus: <code style="font-family: var(--font-mono);">position: sticky</code></h2>
+    <div class="sticky-intro">
+      <strong>sticky</strong> es un híbrido entre <code>relative</code> y <code>fixed</code>. El elemento se comporta como <code>relative</code> hasta que el scroll alcanza el umbral que defines (por ejemplo <code>top: 0</code>), y entonces se "pega" como si fuera <code>fixed</code>, pero solo dentro de su contenedor padre.
+    </div>
+
+    <p class="label">Haz scroll dentro del recuadro ↓</p>
+
+    <div id="scroll-container">
+      <div style="padding: 14px 16px 8px;">
+        <p style="font-size: 13px; color: var(--text-muted); margin: 0 0 10px;">Lista de frutas agrupadas por categoría. Los encabezados son sticky.</p>
+      </div>
+
+      <section>
+        <div class="sticky-header sh-citricos">🟡 Cítricos</div>
+        <ul class="fruit-list">
+          <li>Naranja</li><li>Limón</li><li>Mandarina</li><li>Pomelo</li><li>Lima</li>
+        </ul>
+      </section>
+
+      <section>
+        <div class="sticky-header sh-rojos">🍓 Frutos rojos</div>
+        <ul class="fruit-list">
+          <li>Fresa</li><li>Frambuesa</li><li>Mora</li><li>Arándano</li><li>Cereza</li>
+        </ul>
+      </section>
+
+      <section>
+        <div class="sticky-header sh-tropicales">🥝 Tropicales</div>
+        <ul class="fruit-list">
+          <li>Mango</li><li>Piña</li><li>Papaya</li><li>Kiwi</li><li>Maracuyá</li>
+        </ul>
+      </section>
+
+      <section>
+        <div class="sticky-header sh-otras">🍇 Otras</div>
+        <ul class="fruit-list">
+          <li>Manzana</li><li>Pera</li><li>Uva</li><li>Plátano</li><li>Sandía</li>
+        </ul>
+      </section>
+    </div>
+
+    <p class="scroll-hint">Cada encabezado se queda pegado arriba mientras hay items de su categoría visibles, y luego es empujado por el siguiente.</p>
+
+    <p class="label">CSS aplicado a los encabezados</p>
+<pre class="code"><span class="kw">.sticky-header</span> {
+  <span class="prop">position</span>: <span class="val">sticky</span>;
+  <span class="prop">top</span>: <span class="val">0</span>;          <span class="com">/* se pega al borde superior */</span>
+  <span class="prop">z-index</span>: <span class="val">2</span>;      <span class="com">/* queda por encima del contenido */</span>
+}</pre>
+  </section>
+
+  <!-- ============================== -->
+  <!-- Summary cheat sheet -->
+  <!-- ============================== -->
+  <section class="demo">
+    <h2>Resumen rápido</h2>
+    <p class="intro">Para tener a mano cuando estés decidiendo qué <code style="font-family: var(--font-mono);">position</code> usar.</p>
+
+    <div class="summary">
+      <div class="sum-card">
+        <p class="name">static</p>
+        <p class="desc">Valor por defecto. Sigue el flujo normal. Ignora top/left/etc.</p>
+      </div>
+      <div class="sum-card">
+        <p class="name">relative</p>
+        <p class="desc">Se desplaza desde su posición original, dejando un hueco. Ancla para hijos absolute.</p>
+      </div>
+      <div class="sum-card">
+        <p class="name">absolute</p>
+        <p class="desc">Sale del flujo. Se ancla al ancestro posicionado más cercano.</p>
+      </div>
+      <div class="sum-card">
+        <p class="name">fixed</p>
+        <p class="desc">Sale del flujo. Se ancla al viewport. Sobrevive al scroll.</p>
+      </div>
+      <div class="sum-card">
+        <p class="name">sticky</p>
+        <p class="desc">Híbrido: relative hasta tocar el umbral, después fixed dentro de su padre.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Material de clase · CSS Positioning
+  </footer>
+
+</div>
+
+<script>
+  const data = {
+    static: {
+      explanation: "Es el valor por defecto. El elemento sigue el flujo normal del documento. Las propiedades top, left, right y bottom NO tienen efecto.",
+      code: `<span class="kw">.caja-2</span> {
+  <span class="prop">position</span>: <span class="val">static</span>;
+  <span class="com">/* top, left, etc. son ignorados */</span>
+  <span class="prop">top</span>: <span class="val">50px</span>;     <span class="com">/* ❌ ignorado */</span>
+  <span class="prop">left</span>: <span class="val">100px</span>;   <span class="com">/* ❌ ignorado */</span>
+}`,
+      style: { position: "static", top: "", left: "", right: "", bottom: "" },
+      insight: "💡 Todas las cajas se apilan una tras otra. Ningún desplazamiento ocurre, aunque definas top o left."
+    },
+    relative: {
+      explanation: "El elemento se posiciona relativo a su posición original en el flujo. top/left lo desplazan, pero deja un 'hueco' en su lugar original.",
+      code: `<span class="kw">.caja-2</span> {
+  <span class="prop">position</span>: <span class="val">relative</span>;
+  <span class="prop">top</span>: <span class="val">20px</span>;
+  <span class="prop">left</span>: <span class="val">40px</span>;
+}`,
+      style: { position: "relative", top: "20px", left: "40px", right: "", bottom: "" },
+      insight: "💡 Fíjate cómo Caja 2 se desplaza, pero Caja 3 NO sube para llenar el espacio. El hueco original se mantiene."
+    },
+    absolute: {
+      explanation: "Se saca del flujo normal y se posiciona respecto al ancestro posicionado más cercano (relative/absolute/fixed). Si no hay, respecto al <html>.",
+      code: `<span class="kw">.contenedor</span> {
+  <span class="prop">position</span>: <span class="val">relative</span>; <span class="com">/* ancla */</span>
+}
+
+<span class="kw">.caja-2</span> {
+  <span class="prop">position</span>: <span class="val">absolute</span>;
+  <span class="prop">top</span>: <span class="val">10px</span>;
+  <span class="prop">right</span>: <span class="val">10px</span>;
+}`,
+      style: { position: "absolute", top: "10px", right: "10px", left: "", bottom: "" },
+      insight: "💡 Caja 2 salió del flujo: Caja 3 subió ocupando su lugar. Se ancla a la esquina del contenedor (que tiene position: relative)."
+    },
+    fixed: {
+      explanation: "Se saca del flujo y se posiciona respecto al viewport (la ventana del navegador). Permanece visible aunque hagas scroll.",
+      code: `<span class="kw">.caja-2</span> {
+  <span class="prop">position</span>: <span class="val">fixed</span>;
+  <span class="prop">bottom</span>: <span class="val">20px</span>;
+  <span class="prop">right</span>: <span class="val">20px</span>;
+  <span class="com">/* Se mantiene fija aunque hagas scroll */</span>
+}`,
+      style: { position: "absolute", bottom: "12px", right: "12px", top: "", left: "" },
+      insight: "💡 Aquí simulamos fixed dentro del recuadro para que veas el efecto. En una página real, quedaría pegada a la ventana del navegador (típico para botones flotantes o headers)."
+    }
+  };
+
+  const target = document.getElementById('target');
+  const codeBox = document.getElementById('code');
+  const explanation = document.getElementById('explanation');
+  const insight = document.getElementById('key-insight');
+  const tabs = document.querySelectorAll('.tab-btn');
+
+  function apply(pos) {
+    const d = data[pos];
+    target.style.position = d.style.position;
+    target.style.top = d.style.top;
+    target.style.left = d.style.left;
+    target.style.right = d.style.right;
+    target.style.bottom = d.style.bottom;
+    codeBox.innerHTML = d.code;
+    explanation.textContent = d.explanation;
+    insight.textContent = d.insight;
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.pos === pos));
+  }
+
+  tabs.forEach(t => t.addEventListener('click', () => apply(t.dataset.pos)));
+  apply('static');
+</script>
+</body>
+</html>

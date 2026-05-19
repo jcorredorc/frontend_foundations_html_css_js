@@ -1,0 +1,31 @@
+.contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;  
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.item{
+    flex: 1 1 300px; 
+    /*Esto permite que los elementos crezcan y se reduzcan según el espacio disponible, con un tamaño base de 300px.*/
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+    .item {
+        width: 100%; /* En pantallas pequeñas, cada elemento ocupará el 100% del ancho disponible. */
+    }
+}
+
+/* Estilos para pantallas medianas */
+@media (min-width: 601px) and (max-width: 900px) {
+    .item {
+        flex: 1 1 45%; /* En pantallas medianas, cada elemento ocupará aproximadamente el 45% del ancho disponible, permitiendo dos elementos por fila. */
+    }
+}  
+
+
+

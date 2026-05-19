@@ -1,0 +1,204 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+  /* --- COLORES PRIMARIOS (Extraídos del café y empaque) --- */
+  --primary-dark: #1A1A1A;      /* El negro mate del empaque y fondo de barra */
+  --coffee-bean: #3D2B1F;      /* Tono café profundo de los granos tostados */
+  --roast-accent: #8B5E3C;     /* Color caramelo/tostado medio (el logo en madera) */
+  
+  /* --- COLORES SECUNDARIOS (Calidez y Textura) --- */
+  --terracotta: #A65D37;       /* El tono de la vasija de barro en la foto de la taza */
+  --cream-soft: #F2E8DF;       /* El color de la taza de cerámica y fondo de etiquetas */
+  --paper-bag: #D9B382;        /* El tono del costal de yute y la madera clara */
+
+  /* --- COLORES DE SOPORTE (Interfaz y Texto) --- */
+  --text-main: #2C2C2C;        /* Para párrafos, alta legibilidad */
+  --bg-light: #FAF7F2;         /* Fondo general de la página (no usar blanco puro) */
+  --success-green: #4A5D23;    /* El verde profundo de las hojas del cafeto */
+  
+  /* --- ESTILOS ADICIONALES RECOMENDADOS --- */
+  --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --border-radius: 4px;        /* Bordes sutiles, estilo artesanal */
+}
+
+html{
+    font-size: 16px;
+}
+
+body{
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    background-color: var(--bg-light);
+}
+
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5rem;
+    background: var(--bg-light);
+    color: var(--primary-dark);
+    padding: 1rem;
+    border-bottom: 1px solid var(--coffee-bean);
+    font-size: 1.5rem;
+
+    position: sticky;
+    top: 0;
+}
+
+.main-nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 1rem;
+    list-style: none;
+}
+
+.main-nav a{
+    text-decoration: none;
+    color: var(--roast-accent);
+    position: relative;
+    font-size: 1rem;
+    /* font-weight: bold; */
+    /* padding: 0.5rem 1rem; */
+    /* border-radius: var(--border-radius); */
+    /* transition: background-color 0.3s ease, color 0.3s ease; */
+    transition:
+            transform 0.3s ease-out;
+            box-shadow: 0.3s ease;
+}
+
+
+
+
+/* .main-nav a:hover{
+    color: var(--primary-dark);
+    /* background-color: var(--roast-accent);
+    
+} */
+
+.main-nav a:after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--coffee-bean);
+    transition: width 0.3s ease-out;
+}
+
+
+
+.main-nav a:hover:after {
+    width: 100%;
+}
+
+
+/* .nav-links li{
+    flex-wrap: wrap;
+} */
+/* .submenu {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+    max-height 0.5s ease,
+    opacity 0.3s ease;
+}
+
+.nav-item:hover .submenu {
+    max-height: 300px;
+    opacity: 1;
+} */
+
+.menu-card:hover{
+    transform: 
+        traslateY(-5px)
+        rotate(2deg);
+    box-shadow: 
+        /* 0px 10px 20px rgba(0, 0, 0, 0.2); */
+        var(--shadow-soft);
+}
+
+
+#main-content{
+    padding: 0rem;
+}
+
+#main-title{
+    padding: 1rem;
+}
+
+
+.menu-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    /* align-items: center; */
+    padding: 1rem;
+    /* gap: 1rem; */
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+    .menu-container {
+        flex-direction: column;
+    }
+}
+
+.menu-card{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: start; */
+    /* align-items: center; */
+    gap: 0.3rem;
+    padding: 1rem;
+    border: 1px solid rgb(212, 208, 208);
+    border-radius: 0.5rem;
+}
+
+.menu-card-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    /* align-items: end; */
+    gap: 0.5rem;
+}
+
+.menu-card-price{
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: right;
+}
+
+.menu-card-image{
+    border-radius: 15px;
+}
+
+.btn{
+    width: 80px;
+    height: 30px;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    /* transition: background-color 0.3s ease; */
+}
+
+.btn-primary{
+    background-color: rgb(4, 119, 112);
+    color: white;
+}
+
+.btn-secondary{
+    background-color: rgb(81, 207, 142);
+    color: white;
+}
+
+
