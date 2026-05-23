@@ -1,0 +1,515 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* --- COLORES PRIMARIOS (Extraídos del café y empaque) --- */
+  --primary-dark: #1a1a1a; /* El negro mate del empaque y fondo de barra */
+  --coffee-bean: #3d2b1f; /* Tono café profundo de los granos tostados */
+  --roast-accent: #8b5e3c; /* Color caramelo/tostado medio (el logo en madera) */
+
+  /* --- COLORES SECUNDARIOS (Calidez y Textura) --- */
+  --terracotta: #a65d37; /* El tono de la vasija de barro en la foto de la taza */
+  --cream-soft: #f2e8df; /* El color de la taza de cerámica y fondo de etiquetas */
+  --paper-bag: #d9b382; /* El tono del costal de yute y la madera clara */
+
+  /* --- COLORES DE SOPORTE (Interfaz y Texto) --- */
+  --text-main: #2c2c2c; /* Para párrafos, alta legibilidad */
+  --text-soft: #555; /* Para textos secundarios, menor contraste */
+  --bg-light: #faf7f2; /* Fondo general de la página (no usar blanco puro) */
+  --success-green: #4a5d23; /* El verde profundo de las hojas del cafeto */
+
+  /* --- ESTILOS ADICIONALES RECOMENDADOS --- */
+  --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --border-radius: 4px; /* Bordes sutiles, estilo artesanal */
+  /*- roast-accent to coffee-bean -*/
+  --gradient-primary: linear-gradient(135deg, #8b5e3c 0%, #3d2b1f 100%);
+  /*- cream-soft to paper-bag -*/
+  --gradient-soft: linear-gradient(135deg, #f2e8df 0%, #faf7f2 100%);
+  /*- terracotta to paper-bag -*/
+  --gradient-texture: linear-gradient(135deg, #a65d37 0%, #d9b382 100%);;
+  /*- text-soft to success-green -*/
+  --gradient-texture-dark: linear-gradient(135deg, #4a5d23 0%, #f2e8df 100%);
+  --max-width: 1200px; /* Para centrar el contenido y evitar que se extienda demasiado en pantallas grandes */
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  background-color: var(--bg-light);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 25% 1fr; /* 250px para sidebar, 1fr para main */
+  grid-template-rows: auto 1fr auto auto auto; /* auto para header/footer, 1fr para main/sidebar */
+  gap: 20px; /* Espacio entre las celdas del grid */
+  min-height: 100vh; /* Para que el grid ocupe toda la altura de la ventana */
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "sidebar favorites"
+    "form-contact form-contact"
+    "footer footer";
+    /* Definición de áreas para cada sección del grid */
+  }
+  
+  .header { 
+    grid-area: header; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5rem;
+    background: var(--bg-light);
+    color: var(--primary-dark);
+    padding: 1rem;
+    border-bottom: 1px solid var(--coffee-bean);
+    font-size: 1.5rem;
+    
+    position: sticky;
+    top: 0;
+    z-index: 10
+  }
+  
+  #main-title {
+    padding: 1rem;
+  }
+
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+#contacto { grid-area: form-contact; }
+.footer { grid-area: footer; }
+
+
+.main-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 1rem;
+  list-style: none;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--roast-accent);
+  position: relative;
+  font-size: 1rem;
+  /* font-weight: bold; */
+  /* padding: 0.5rem 1rem; */
+  /* border-radius: var(--border-radius); */
+  /* transition: background-color 0.3s ease, color 0.3s ease; */
+  transition: transform 0.3s ease-out;
+  box-shadow: 0.3s ease;
+}
+
+
+.main-nav a:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--coffee-bean);
+  transition: width 0.3s ease-out;
+}
+
+.main-nav a:hover:after {
+  width: 100%;
+}
+
+/* home */
+
+#home{
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 4rem;
+  max-width: var(--max-width);
+}
+
+.home__eyebrown {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--coffee-bean);
+  text-transform: uppercase;
+  background: var(--gradient-soft);
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  border-radius: 10px;
+} 
+.home__title {
+  font-size: clamp(1rem, 2.5vw, 3rem);
+  font-weight: bold;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  color: var(--primary-dark);
+}
+
+.home__title-accent {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.home__text {
+  font-size: 1.05rem;
+  color: var(--text-soft);
+  margin: 1.5rem 0 2rem;
+  max-width: 520px;
+}
+
+/* Home Visuals */
+
+.home__visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home__shape {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  opacity: 0.1;
+  filter: blur(6px);
+}
+
+.home__shape--1 {
+  top:0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  background: var(--gradient-texture);
+}
+
+.home__shape--2 {
+  top: 50px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  background: var(--gradient-texture-dark);
+}
+
+.home__shape--3 {
+  top: 100px;
+  left: 100px;
+  width: 50px;
+  height: 50px;
+}
+
+
+/* home_stats */
+
+.home__stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.home__stats dt {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  align-items: baseline;
+}
+
+.home__stats dd {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+}
+
+
+
+/* carta */
+
+#menu {
+  margin: 0 auto;
+  padding: 6rem 1.5rem;
+  max-width: var(--max-width);
+}
+
+.menu-header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.5rem;
+
+}
+
+.menu__eyebrown {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--coffee-bean);
+  text-transform: uppercase;
+  background: var(--gradient-soft);
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  border-radius: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+
+.menu__title{
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: clamp(1.5rem, 3vw, 4rem);
+}
+
+.menu__subtitle {
+  color: var(--text-soft);
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+}
+
+/* Card */
+
+.menu-card:hover {
+  /* transform: translateY(-5px) rotate(2deg); */
+  transform: translateY(-5px);
+  box-shadow: 
+        /* 0px 10px 20px rgba(0, 0, 0, 0.2); */ 
+        0 18px 35px rgba(0,0,0,0.16),
+        0 4px 12px rgba(0,0,0,0.08);
+}
+
+
+.menu-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* align-items: center; */
+  padding: 1rem;
+   gap: 1rem;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+  .menu-container {
+    flex-direction: column;
+  }
+}
+
+.menu-card {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: start; */
+  /* align-items: center; */
+  gap: 0.3rem;
+  padding: 1rem;
+  border: 1px solid var(--paper-bag);
+  border-radius: 0.5rem;
+  background: var(--gradient-soft);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease-out, 
+              box-shadow 0.25s ease, 
+              border-color 0.3s ease-out;
+  position: relative;
+  overflow: hidden;
+  z-index: ;
+
+}
+
+.menu-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.25rem;
+  background: var(--gradient-primary);
+  opacity: 0.05;
+  transition: opacity 0.3s ease-out;
+}
+
+.menu-card:hover::before {
+  opacity: 0.2;
+}
+
+.menu-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.menu-card__tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--roast-accent);
+  /* background: var(--gradient-texture); */
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  align-self: flex-start;
+} 
+
+.menu-card-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  /* align-items: end; */
+  gap: 0.5rem;
+}
+
+.menu-card-price {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: right;
+}
+
+.menu-card-image {
+  border-radius: 15px;
+}
+
+.btn {
+  /* width: 80px;
+  height: 30px; */
+  height: 30px;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--gradient-texture-dark-green);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  /* transition: background-color 0.3s ease; */
+  white-space: nowrap;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.btn-primary {
+  background: var(--gradient-texture-dark);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  font-weight: bold;
+  /* font-variant-emoji: emoji; */
+}
+
+
+.btn-secondary.is-active {
+  color: red;
+  font-weight: bold;
+}
+
+/* ---------------------- */
+/* Aside - filtro         */
+/* ---------------------- */
+
+/* Contenedor principal del aside */
+.filtros-menu ul {
+  list-style: none;
+  padding: 0;
+  margin-left: 1rem;
+}
+
+/* Títulos de Categoría Principal (Café, Taza, etc.) */
+.titulo-cat {
+  display: block;
+  font-weight: 700;
+  color: var(--coffee-bean); /* Marrón oscuro */
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--paper-bag); /* Línea debajo del título */
+}
+
+/* Primer nivel de subcategoría (Indented) */
+.subcategoria {
+  margin-inline-start: 15px; /* Sangría a la izquierda */
+}
+
+/* Títulos de nivel intermedio (Tortas, Amasijos) */
+.titulo-subcat {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--coffee-bean);
+  margin-top: 0.8rem;
+}
+
+/* Enlaces finales (Los productos clicables) */
+.subcategoria a, 
+.sub-subcategoria a {
+  text-decoration: none;
+  color: var(--roast-accent);
+  font-size: 0.85rem;
+  padding: 4px 0;
+  display: block;
+  transition: color 0.2s ease;
+}
+
+.subcategoria a:hover, 
+.sub-subcategoria a:hover {
+  color: var(--coffee-bean);
+  padding-left: 5px; /* Efecto sutil al pasar el mouse */
+}
+
+/* Segundo nivel de subcategoría (Doble Sangría) */
+.sub-subcategoria {
+  margin-inline-start: 15px;
+  border-left: 1px dashed var(--paper-bag); /* Línea guía visual */
+  padding-left: 10px;
+}
+
+/* ---------------------------------------------------------------
+   Favorites Section
+   ---------------------------------------------------------------
+   The favorites view sits between the catalog and the comparison
+   table. Its inner container reuses `.card-container` (grid layout)
+   so favorite cards look exactly like catalog cards.
+*/
+.favorites__container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+}
+
+/* Empty-state message: shown only when the favorites list is empty.
+   JS toggles its display property based on the favorites count. */
+.favorites__empty {
+    text-align: center;
+    color: var(--text-soft);
+    padding: 40px 20px;
+    background: var(--gradient-soft);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--border-radius);
+}
+
+/* "Active" (filled) state for the heart button when the car is a favorite.
+   The base `.btn-favorite` rule lives above; this one only kicks in when
+   JS adds the `is-active` class to the button. 
+.btn.btn-favorite.is-active {
+    background: var(--gradient-soft);
+    color: #ef4444;
+}
+*/

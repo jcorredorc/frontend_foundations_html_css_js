@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="La Tostaduría - Café de especialidad de Boyacá. Trabajamos con pequeños productores para ofrecer café colombiano de origen, trazable y de alta calidad."
+    />
+    <meta name="author" content="La Tostaduría Team" />
+    <meta
+      name="keywords"
+      content="coffee, beverages, café, coffee shop, drinks"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#000000" />
+    <!-- Open Graph - redes sociales -->
+    <meta
+      property="og:title"
+      content="La Tostaduría - Café de Boyacá | Especialidad de pequeños productores"
+    />
+    <meta
+      property="og:description"
+      content="Café de especialidad de Boyacá, Colombia. Trabajamos con pequeños productores para ofrecer café de origen, trazable y de alta calidad."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://www.latostaduria.com/og-image.jpg"
+    />
+    <meta property="og:url" content="https://www.latostaduria.com" />
+    <!-- Twiter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="La Tostaduría - Café de Boyacá | Especialidad de pequeños productores"
+    />
+    <meta
+      name="twitter:description"
+      content="Descubre café de origen cultivado en Boyacá por pequeños productores. Calidad, trazabilidad y tradición en cada taza."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.latostaduria.com/twitter-image.jpg"
+    />
+    <meta name="twitter:site" content="@latostaduria" />
+    <!-- hojas de estilo -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- favicon  icono en el tab del navegador -->
+    <link rel="icon" href="tostaduria.ico" type="image/x-icon" />
+    <!-- fuentes de google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- scripts -->
+    <script src="js/script.js" defer></script>
+    <!-- precarga de imagenes -->
+    <link rel="preload" as="image" href=".jpg" />
+    <title>La Tostaduría</title>
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <header class="header">
+        <h1 id="main-title">La Tostaduría</h1>
+        <!-- <p>Café de especialidad de Boyacá, Colombia</p>
+        <p>Trabajamos con pequeños productores para ofrecer café de origen, trazable y de alta calidad.</p> -->
+        <nav class="main-nav">
+          <ul class="nav-links">
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#menu">Carta</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <aside class="sidebar">
+        <h3>Categorías</h3>
+        <nav class="filtros-menu">
+          <ul class="categoria-padre">
+            <li>
+              <span class="titulo-cat">Café para preparar</span>
+              <ul class="subcategoria">
+                <li><a href="#">Molido</a></li>
+                <li><a href="#">En grano</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <span class="titulo-cat">Taza</span>
+              <ul class="subcategoria">
+                <li><a href="#">Americano</a></li>
+                <li><a href="#">Expreso</a></li>
+                <li><a href="#">Capuccino</a></li>
+                <li><a href="#">Latte</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <span class="titulo-cat">Acompañamientos</span>
+              <ul class="subcategoria">
+                <li>
+                  <span class="titulo-subcat">Tortas</span>
+                  <ul class="sub-subcategoria">
+                    <li><a href="#">Chocolate</a></li>
+                    <li><a href="#">Queso</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <span class="titulo-subcat">Amasijos</span>
+                  <ul class="sub-subcategoria">
+                    <li><a href="#">Pan de yuca</a></li>
+                    <li><a href="#">Almojábana</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <span class="titulo-subcat">Postres</span>
+                  <ul class="sub-subcategoria">
+                    <li><a href="#">Tiramisú</a></li>
+                    <li><a href="#">Cheesecake</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <!-- Contenido principal de la página -->
+        <section id="home">
+          <div class="home__content">
+            <p class="home__eyebrown">COSECHA SELECTA</p>
+            <h3 class="home__title">
+              Café de <span class="home__title-accent">Boyacá</span>
+            </h3>
+            <p class="home__text">
+              Llevamos el auténtico café de Boyacá directamente a tu taza. Sin
+              intermediarios, con trazabilidad total y el sabor de los pequeños
+              productores en cada sorbo.
+            </p>
+          </div>
+          <div class="home__visual">
+            <div class="home__shape home__shape--1"></div>
+            <div class="home__shape home__shape--2"></div>
+            <div class="home__shape home__shape--3"></div>
+          </div>
+          <div class="home__actions">
+            <button class="btn btn-primary">Carta</button>
+            <button class="btn btn-secondary" href="#contacto">Contacto</button>
+          </div>
+          <dl class="home__stats">
+            <div>
+              <dt>+30</dt>
+              <dd>Variedades</dd>
+            </div>
+            <div>
+              <dt>24/7</dt>
+              <dd>Ventas</dd>
+            </div>
+            <div>
+              <dt>4.9★</dt>
+              <dd>Satisfacción</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section id="menu">
+          <header class="menu-header">
+            <p class="menu__eyebrown">Carta</p>
+            <h2 class="menu__title">Nuestros Productos</h2>
+            <p class="menu__subtitle">
+              Descubre nuestra selección de productos premium
+            </p>
+          </header>
+          <div class="menu-container" id="cafeteria">
+            
+            
+          </div>
+        </section>
+      </main>
+
+      <section class="favorites">
+        <header class="section-head">
+                <p class="section-eyebrow">Saved</p>
+                <h2 class="highlight">Your Favorites</h2>
+                <p class="section-subtitle">Products you marked with the heart icon</p>
+            </header>
+            <!-- Empty-state message shown when there are no favorites yet -->
+            <p class="favorites__empty">No favorites yet. Tap the ♡ on any product to add it here.</p>
+            <!-- Container where favorite cards are rendered dynamically by JS -->
+            <div class="favorites__container">
+            </div>
+      </section>
+
+
+      <section class="form-contact" id="contacto">
+        <h2>Contactenos</h2>
+        <form action="/submit-form" method="post">
+          <!-- Fieldset 1: Información Personal -->
+          <fieldset>
+            <legend>Información Personal</legend>
+
+            <div>
+              <label for="nombre">Nombre Completo:</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                required
+                minlength="3"
+                maxlength="100"
+                placeholder="Tu nombre completo"
+              />
+            </div>
+
+            <div>
+              <label for="email">Correo Electrónico:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="tu.correo@ejemplo.com"
+              />
+            </div>
+
+            <div>
+              <label for="telefono">Teléfono:</label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                required
+                pattern="[0-9\s\-\+\(\)]+"
+                placeholder="+57 1 234 5678"
+              />
+            </div>
+          </fieldset>
+
+          <!-- Fieldset 2: Tipo de Consulta -->
+          <fieldset>
+            <legend>Consulta</legend>
+
+            <div>
+              <label for="tipo-consulta">Tipo de Consulta:</label>
+              <select id="tipo-consulta" name="tipo-consulta" required>
+                <option value="">-- Selecciona una opción --</option>
+                <option value="informacion">Información de productos</option>
+                <option value="pedido">Realizar pedido</option>
+                <option value="reclamo">Reclamo o sugerencia</option>
+                <option value="alianza">Alianzas y negocios</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="mensaje">Mensaje:</label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                required
+                minlength="10"
+                maxlength="500"
+                rows="6"
+                placeholder="Cuéntanos cómo podemos ayudarte..."
+              ></textarea>
+            </div>
+          </fieldset>
+
+          <!-- Fieldset 3: Políticas -->
+          <fieldset>
+            <legend>Privacidad</legend>
+
+            <div>
+              <input
+                type="checkbox"
+                id="privacidad"
+                name="privacidad"
+                required
+              />
+              <label for="privacidad"
+                >Acepto la política de privacidad y el tratamiento de mis datos
+                personales</label
+              >
+            </div>
+          </fieldset>
+
+          <!-- Botones -->
+          <div>
+            <button class="btn btn-primary" type="submit">
+              Enviar Mensaje
+            </button>
+            <button class="btn btn-secondary" type="reset">
+              Limpiar Formulario
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <footer class="footer">
+        <p>&copy; 2026 La Tostaduría. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -476,7 +476,7 @@ https://github.com/EDCO-CET/easycars
 parse
 strigyfy
 
-# Fetch API
+## Fetch API
 
 Nativo del navegador. el metodo nativo de JS para hacer peticiones HTTP.
 
@@ -486,7 +486,7 @@ operación asincrona,
 
 - metodos then, catch
 
-# metodos HTTP comunes
+## metodos HTTP comunes
 
 * GET - obtener datos
 
@@ -496,11 +496,11 @@ operación asincrona,
 
 * DELETE - elimina
 
-# Configurando peticiones Fetch
+## Configurando peticiones Fetch
 
 
 
-# Recursos
+## Recursos
 
 
 https://jsonplaceholder.typicode.com/posts/1
@@ -511,11 +511,71 @@ https://jsonplaceholder.typicode.com/posts/1
 ￼
 ￼
 ￼￼
+# Sesión 12
+
+## async / await
+
+No se usa el then, para mejor hace códico parezca sincrono.
+
+## Manejo de errores en Fetch
+
+
+## Web APis: la ayuda del navegador
+
+no son parte de JS
+
+* Motor JS
+
+* Call Stack
+
+* Web APIs (Navegador)
+
+* Event loop: La pila esta vacia? si -> agregue elementos al call stack
+
+* Task Queue -> Web APIs 
+
+* Microtask Queue -> PRomises
+
+## Ciclo de vida de un Fetch
+
+
+
+￼￼https://www.lydiahallie.com/blog/event-loop
+
+
+￼￼## ejemplo
+const favoritieIDs= new Set()
+localstorage
+
+# sesion13
+
+arreglos
+
+modal para el carrito de compras
+
+visibilidad y opacidad para mostrar carrito de compras.
+
+
+## REACT
 ￼￼
-￼￼
-￼￼
-￼￼
-￼￼
-￼
-￼
+￼DRY - Dont repeat yourself
+
+
+## Principales librerias y frameworks
+
+* REACT - biblioteca para interfaces
+
+* ANGULAR  - Framework completo
+
+* VUE - Framework progresivo
+
+
+## Componentes
+
+un componente en REACT es 
+
+
+## Que es Vite?
+
+￼npm create vite@latest cafeteria --template react
 ￼
