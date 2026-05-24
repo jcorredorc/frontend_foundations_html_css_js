@@ -81,7 +81,14 @@ body {
     padding: 1rem;
   }
 
-.sidebar { grid-area: sidebar; }
+.sidebar { 
+  grid-area: sidebar;
+  position: sticky;
+  top: 130px;
+  align-self: start;
+  z-index: 5;
+ }
+
 .main { grid-area: main; }
 #contacto { grid-area: form-contact; }
 .footer { grid-area: footer; }

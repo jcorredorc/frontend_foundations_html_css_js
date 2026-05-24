@@ -70,6 +70,7 @@
           <ul class="nav-links">
             <li><a href="#home">Inicio</a></li>
             <li><a href="#menu">Carta</a></li>
+            <li><a href="#shoppingCar">Compras <span class="cart__counter">0</span></a></li>
             <li><a href="#contacto">Contacto</a></li>
           </ul>
         </nav>
@@ -174,26 +175,32 @@
               Descubre nuestra selección de productos premium
             </p>
           </header>
-          <div class="menu-container" id="cafeteria">
-            
-            
-          </div>
+          <div class="menu-container" id="cafeteria"></div>
         </section>
       </main>
 
       <section class="favorites">
         <header class="section-head">
-                <p class="section-eyebrow">Saved</p>
-                <h2 class="highlight">Your Favorites</h2>
-                <p class="section-subtitle">Products you marked with the heart icon</p>
-            </header>
-            <!-- Empty-state message shown when there are no favorites yet -->
-            <p class="favorites__empty">No favorites yet. Tap the ♡ on any product to add it here.</p>
-            <!-- Container where favorite cards are rendered dynamically by JS -->
-            <div class="favorites__container">
-            </div>
+          <p class="section-eyebrow">Saved</p>
+          <h2 class="highlight">Your Favorites</h2>
+          <p class="section-subtitle">
+            Products you marked with the heart icon
+          </p>
+        </header>
+        <!-- Empty-state message shown when there are no favorites yet -->
+        <p class="favorites__empty">
+          No favorites yet. Tap the ♡ on any product to add it here.
+        </p>
+        <!-- Container where favorite cards are rendered dynamically by JS -->
+        <div class="favorites__container"></div>
       </section>
 
+      <section class="cart" id="shoppingCar">
+        <h2>Carrito</h2>
+        <p class="cart__empty">Tu carrito está vacío.</p>
+        <div class="cart__container"></div>
+        <p class="cart__total"></p>
+      </section>
 
       <section class="form-contact" id="contacto">
         <h2>Contactenos</h2>
